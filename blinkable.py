@@ -8,3 +8,5 @@ class Blinkable(ABC):
     @abstractmethod
     def blink(self):
         pass
+
+
