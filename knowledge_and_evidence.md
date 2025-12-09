@@ -72,7 +72,7 @@ python3 main.py
    | ----------              |--------|---------------|
    | built-in primitive type | dimmed | True          |
    | built-in composite type | YELLOW | (255, 255, 0) |
-   | user-defined type       | Smiley | Y             |
+   | user-defined type       | Smiley | Smiley()      |
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
@@ -94,7 +94,7 @@ python3 main.py
 
    | Type                    | Used? | Example                         |
    | ----------------------- |-------|---------------------------------|
-   | int                     | no    | population = 250000             |
+   | int                     | yes   | WHITE = (255, 255, 255)         |
    | float                   | yes   | def blink(self, delay=0.25)     |
    | str                     | no?   | greeting = "hello"              |
    | bool                    | yes   | self.draw_eyes(wide_open=False) |
@@ -129,6 +129,7 @@ python3 main.py
    > The other two statements executed by the initialiser are calling upon  
    > functions (draw_mouth and draw_eyes) from the parent classes and draws 
    > the mouth and then the eyes of the Happy class output
+   > 😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊
 
 ### 2.3. Code style
 
@@ -147,9 +148,11 @@ python3 main.py
 
 > Below is an example of how comments are never made longer than 72 characters long, which is mentioned within the PEP 8 standard
 > 1.        Draws the eyes (open or closed) on the standard smiley.
-> Below is an example of 4 spaces being used for indentation
-> 2.         for pixel in mouth:
->                self.pixels[pixel] = self.BLANK
+> 2. Here is an example of docstrings being used in the Happy class
+>    """
+     Draws the eyes (open or closed) on the standard smiley.
+     :param wide_open (bool): eyes open or closed.
+     """
 
 
 ### 2.4. Identifying and understanding classes
@@ -161,11 +164,11 @@ python3 main.py
   Use the following table for your answers:
 
 | Class Name | Super or Sub? | Direct parent(s)  |
-|-----------|---------------|-------------------|
-| NotReal   | Sub           | NotRealParent     |
-| Smiley    | Base          | N/A               |
-| Happy     | Sub           | Smiley, Blinkable |
-| Sad       | Sub           | Smiley            |
+|------------|---------------|-------------------|
+| Blinkable  | Super         | ABC               |
+| Smiley     | Base          | N/A               |
+| Happy      | Sub           | Smiley, Blinkable |
+| Sad        | Sub           | Smiley            |
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
@@ -190,10 +193,12 @@ Compare and contrast the classes Happy and Sad.
    > Both classes have the parent class 'Smiley', and the initialiser function for both classes appear to be identical, both have the variable 'wide_open' set to true for their 'draw_eyes' function, and both use a 'draw_mouth' function
    >
 3. What difference stands out the most to you and why?
-   > Well other than the name for kind of obvious reasons, I'd say the amount of classes that are used/imported into each file, as 'happy.py' has imports from 3 different classes/files, while 'sad.py' only imports 1 file/class
-   >
+   > Well other than the name for kind of obvious reasons, I'd say the difference that stands out the most is that the Happy class imports the Blinkable class
+   > and uses the blink function from the Blinkable class, while the Sad class never imports the Blinkable class and instead it just redefines the blink
+   > function within it's own class.
+   
 4. How does this difference affect the functionality of these classes
-   > The affect this difference has on the 'Happy' class makes it a little more detailed since the 'Sad' class has neither a time variable nor a blinking function incorporated into its code.
+   > This difference has no real or significant affect on these classes, as both classes can use and execute the blink function with no issue and run it as intended.
    >
 
 ### 2.6. Where is the Sense(Hat) in the code?
@@ -205,7 +210,7 @@ Compare and contrast the classes Happy and Sad.
    > The class that directly interacts with the SenseHat functionalities is the class 'Smiley'
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here
+   > Your answer here 😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊
 
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
@@ -356,4 +361,5 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   4. **Design and Implement An Angry Smiley:** Create an Angry smiley class that inherits from the `Smiley` class. Set the color of the Angry smiley to red by passing `self.RED` as the `complexion` argument in the superclass call.
 
   ***
+
 
