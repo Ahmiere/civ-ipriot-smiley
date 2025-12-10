@@ -128,15 +128,17 @@ python3 main.py
    > both used within the Happy class.
    > The other two statements executed by the initialiser are calling upon  
    > functions (draw_mouth and draw_eyes) from the parent classes and draws 
-   > the mouth and then the eyes of the Happy class output
-   > 😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊
+   > the mouth and then the eyes of the Happy class output.
+   > When executed this code opened up a small window that showed a
+   > circular yellow smiling face, and after a few seconds it blinked
+   > once, then returned back to just being a smiling face with no further
+   > animations.
 
 ### 2.3. Code style
 
 1. What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
 
 > The code style of this code is following the PEP-8 style guide which is the standard, and since this is the standard I would say that it is highly likely that this code style is also used for the SenseHat.
->
 
 2. List three aspects of this convention you see applied in the code.
 
@@ -210,7 +212,13 @@ Compare and contrast the classes Happy and Sad.
    > The class that directly interacts with the SenseHat functionalities is the class 'Smiley'
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here 😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊
+   > In the code the SenseHAT object is hidden and encapsulated by the use of "self.sense_hat = SenseHat()" which
+   > creates an instance of the class and assigns it to the instance variable "self.sense_hat" which allowed the rest
+   > of my code to interact with the SenseHAT functions through the use of "self.sense_hat". Within the Smiley class,
+   > the instance variable 'self.sense_hat' is used twice to access the functions from the SenseHAT class, the first
+   > time this instance variable is used is for the Smiley class's dim_display function which uses
+   > 'self.sense_hat.low_light' to affect the light intensity of the program, and the other use of the sensehat
+   > instance variable is used to access the function 'set_pixels' which creates the smiling face for the program.
 
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
@@ -361,5 +369,6 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   4. **Design and Implement An Angry Smiley:** Create an Angry smiley class that inherits from the `Smiley` class. Set the color of the Angry smiley to red by passing `self.RED` as the `complexion` argument in the superclass call.
 
   ***
+
 
 
